@@ -1,30 +1,33 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 import "./globals.css"
-import { ibmPlexMono } from "./fonts"
-import Navigation from "@/components/navigation"
-import Footer from "@/components/footer"
-import { ScrollToTopProvider } from "@/components/scroll-to-top-provider"
+import { SiteHeader } from "@/components/site-header"
+import { SiteFooter } from "@/components/site-footer"
+import { BackToTop } from "@/components/back-to-top"
+
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "I5 Development Framework",
-  description: "Innovative approaches to real estate development",
-  generator: "v0.dev",
+  title: "i5 Model - Real Estate Innovation",
+  description: "Transforming real estate through innovative delivery models and strategic frameworks",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" className={ibmPlexMono.className}>
-      <body className="min-h-screen bg-white flex flex-col">
-        <ScrollToTopProvider>
-          <Navigation />
+    <html lang="en">
+      <body className={inter.className}>
+        <div className="min-h-screen flex flex-col">
+          <SiteHeader />
           <main className="flex-1">{children}</main>
-          <Footer />
-        </ScrollToTopProvider>
+          <SiteFooter />
+        </div>
+        <BackToTop />
       </body>
     </html>
   )
