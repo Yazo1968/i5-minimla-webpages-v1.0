@@ -13,37 +13,16 @@ export default function i5modelsite() {
     <div className="min-h-screen bg-white">
       {/* Hero Section - Mobile First Design */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background - Desktop Only */}
-        <div className="absolute inset-0 w-full h-full hidden lg:block bg-gradient-to-br from-blue-900 via-slate-800 to-slate-900">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              console.error("Video failed to load:", e)
-              e.target.style.display = "none"
-            }}
-          >
+        {/* Video Background with Fallback */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-900 via-slate-800 to-slate-900">
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover" style={{ display: "block" }}>
             <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/278c21f0-d74c-4401-800b-0ccad2cb9d27-video-ddRGlKQ4KsIYvaChkwYLprbq1yEXTZ.mp4" type="video/mp4" />
             <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/278c21f0-d74c-4401-800b-0ccad2cb9d27-video-y41onHM4ynVVoK2DlD6opZQCj2iDwM.webm" type="video/webm" />
           </video>
         </div>
 
-        {/* Mobile Background - Gradient + Geometric Patterns */}
-        <div className="absolute inset-0 w-full h-full lg:hidden">
-          <div className="w-full h-full bg-gradient-to-br from-blue-900 via-slate-800 to-slate-900"></div>
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 left-10 w-32 h-32 border border-white/20 rotate-45"></div>
-            <div className="absolute top-40 right-20 w-24 h-24 border border-white/15 rotate-12"></div>
-            <div className="absolute bottom-40 left-20 w-20 h-20 border border-white/10 rotate-45"></div>
-            <div className="absolute bottom-20 right-10 w-28 h-28 border border-white/20 -rotate-12"></div>
-          </div>
-        </div>
-
         {/* Content - Optimized for Mobile */}
-        <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 w-full px-4 sm:px-6 lg:px:8">
           <div className="max-w-4xl mx-auto text-center">
             {/* Logo and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center mb-8 space-y-4 sm:space-y-0 sm:space-x-4">
